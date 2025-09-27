@@ -16,17 +16,7 @@ public class CureServiceImpl implements CureService {
     private final ModelMapper modelMapper;
 
     @Override
-    public Object getAllCures() {
-        return null;
-    }
-
-    @Override
-    public CureResponseDto getCureById(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<CureResponseDto> getCuresList() {
-        return List.of();
+    public List<CureResponseDto> getCuresList(Long id) {
+        return cureRepository.findAll().stream().map(cure -> modelMapper.map(cure, CureResponseDto.class)).toList();
     }
 }
