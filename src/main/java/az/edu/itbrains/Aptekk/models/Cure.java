@@ -17,8 +17,6 @@ public class Cure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 2000)
-    private String name;
-    @Column(length = 2000)
     private String title;
     @Column(length = 2000)
     private String description;
@@ -29,7 +27,5 @@ public class Cure {
     private String Specifications;
     @Column(length = 2000)
     private String imageUrl;
-    @ManyToOne
-    private Store store;
 
 }

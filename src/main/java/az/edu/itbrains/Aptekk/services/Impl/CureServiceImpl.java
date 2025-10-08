@@ -1,6 +1,7 @@
 package az.edu.itbrains.Aptekk.services.Impl;
 
-import az.edu.itbrains.Aptekk.dtos.response.CureResponseDto;
+import az.edu.itbrains.Aptekk.dtos.response.CureDetailResponseDto;
+import az.edu.itbrains.Aptekk.dtos.response.CureStoreDto;
 import az.edu.itbrains.Aptekk.repository.CureRepository;
 import az.edu.itbrains.Aptekk.services.CureService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,12 @@ public class CureServiceImpl implements CureService {
     private final ModelMapper modelMapper;
 
     @Override
-    public List<CureResponseDto> getCuresList(Long id) {
-        return cureRepository.findAll().stream().map(cure -> modelMapper.map(cure, CureResponseDto.class)).toList();
+    public List<CureDetailResponseDto> getCuresList(Long id) {
+        return cureRepository.findById(id).stream().map(cure -> modelMapper.map(cure, CureDetailResponseDto.class)).toList();
+    }
+
+    @Override
+    public List<CureStoreDto> getCuresForStore() {
+        return cureRepository.findAll().stream().map(cure -> modelMapper.map(cure, CureStoreDto.class)).toList();
     }
 }

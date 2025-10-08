@@ -1,8 +1,7 @@
 package az.edu.itbrains.Aptekk.controller;
 
-import az.edu.itbrains.Aptekk.dtos.response.CureResponseDto;
+import az.edu.itbrains.Aptekk.dtos.response.CureDetailResponseDto;
 import az.edu.itbrains.Aptekk.services.CureService;
-import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +17,8 @@ public class CureController {
 
     @GetMapping("/cure/{id}") // localhost:8080/cure
     public String cure (@PathVariable Long id, Model model)  {
-        List<CureResponseDto> cureResponseDtoList = cureService.getCuresList(id);
-        model.addAttribute("cures", cureResponseDtoList);
+        List<CureDetailResponseDto> cureDetailResponseDtoList = cureService.getCuresList(id);
+        model.addAttribute("cures", cureDetailResponseDtoList);
         return "cure";
     }
 }
