@@ -20,12 +20,13 @@ public class Cure {
     private String title;
     @Column(length = 2000)
     private String description;
-    private double price;
+    private float price;
     @Column(length = 2000)
     private String orderingInformation;
     @Column(length = 2000)
     private String Specifications;
     @Column(length = 2000)
     private String imageUrl;
+
 
 }

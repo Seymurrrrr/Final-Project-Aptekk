@@ -10,7 +10,7 @@ public class CureDetailResponseDto {
     private Long id;
     private String title;
     private String description;
-    private double price;
+    private float price;
     private String orderingInformation;
     private String Specifications;
     private String imageUrl;

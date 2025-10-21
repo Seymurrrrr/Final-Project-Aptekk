@@ -6,27 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "about")
+@Table(name = "teams")
+public class Team {
 
-public class About {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-    private String title;
-    private String description;
 
-
-    @ElementCollection
-    @CollectionTable(name = "about_section", joinColumns = @JoinColumn(name = "about_id"))
-    @Column(name = "section")
-    private List <AboutSection> sections;
-
+    private String name; // Üzvün adı: Elizabeth Graham
+    private String position; // Üzvün vəzifəsi: CEO/CO-FOUNDER
+    private String description; // Üzv haqqında qısa təsvir
+    private String imageUrl; // Üzvün şəklinin fayl/URL yolu
 }

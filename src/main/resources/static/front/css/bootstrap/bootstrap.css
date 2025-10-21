@@ -3229,6 +3229,16 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   list-style: none; }
 
+.nav-link-1 {
+  display: block;
+  padding: 0.5rem 1rem;
+   transition: none;
+   }
+   .nav-link-1:hover, .nav-link-1:focus {
+    text-decoration: none;
+    color:black !important;
+   }
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem; }

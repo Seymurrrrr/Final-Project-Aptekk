@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class CureNewProductDto {
     private Long id;
     private String title;
-    private double price;
+    private float price;
     private String imgUrl;
 }
