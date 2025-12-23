@@ -1,4 +1,4 @@
-package az.edu.itbrains.Aptekk.dtos;
+package az.edu.itbrains.Aptekk.dtos.response;
 import lombok.*;
 
 @Getter
@@ -6,7 +6,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class TeamDTO {
+public class TeamResponseDto {
     private Long id;
     private String name;
     private String position;
