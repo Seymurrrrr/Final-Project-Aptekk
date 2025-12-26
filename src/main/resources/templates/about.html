@@ -90,12 +90,13 @@
             <div th:each="section, iterStat : ${about.sections}" class="row mb-5">
                 <div th:class="${iterStat.index % 2==0} ? 'col-md-6' : 'col-md-5 order-md-2'">
                     <div class="block-16">
+
                         <figure>
                             <!-- Əgər section-da videoUrl varsa, play button göstər -->
-                            <a th:if="${section.videoUrl}"
+                            <a th:if="${false}"
                                th:href="${section.videoUrl}"
                                class="play-button popup-vimeo">
-                                <span class="icon-play"></span>
+                                <span class="icon-play"></span>v
                             </a>
                         </figure>
                     </div>

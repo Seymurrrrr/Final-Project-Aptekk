@@ -3,6 +3,59 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Elementləri seç
+            const qtyInput = document.querySelector('.input-group input[type="text"]');
+            const minusBtn = document.querySelector('.js-btn-minus');
+            const plusBtn = document.querySelector('.js-btn-plus');
+
+                Qiymət göstərilən element (strong içindəki qiymət)
+            const priceElement = document.querySelector('p strong.text-primary.h4');
+
+            // Əsas qiyməti HTML-dən oxu (məsələn "$55.00" → 55.00)
+            let unitPriceText = priceElement.textContent.trim();
+            const unitPrice = parseFloat(unitPriceText.replace(/[^0-9.]/g, '')) || 0;
+
+            // Ümumi qiyməti yeniləyən funksiya
+            function updateTotalPrice() {
+                let quantity = parseInt(qtyInput.value) || 1;
+                if (quantity < 1) {
+                    quantity = 1;
+                    qtyInput.value = 1;
+                }
+
+                const total = quantity * unitPrice;
+                // Qiyməti orijinal formatda yenilə (məsələn $ ilə)
+                priceElement.textContent = '$' + total.toFixed(2);
+                // AZN istəyirsənsə belə dəyiş: priceElement.textContent = total.toFixed(2) + ' AZN';
+            }
+
+            // + düyməsi
+            plusBtn.addEventListener('click', function() {
+                qtyInput.value = (parseInt(qtyInput.value) || 1) + 1;
+                updateTotalPrice();
+            });
+
+            // - düyməsi
+            minusBtn.addEventListener('click', function() {
+                let qty = parseInt(qtyInput.value) || 1;
+                if (qty > 1) {
+                    qtyInput.value = qty - 1;
+                    updateTotalPrice();
+                }
+            });
+
+            // Əl ilə dəyişəndə (input)
+            qtyInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, ''); // yalnız rəqəm icazə ver
+                updateTotalPrice();
+            });
+
+            // Başlanğıc hesabla (səhifə yüklənəndə)
+            updateTotalPrice();
+        });
+    </script>
 
 <!--    <style>-->
 <!--        .btn-turquoise {-->
@@ -173,6 +226,7 @@ priceSlider.addEventListener('input', function() {
         }
     });
 });
+
 </script>
 </body>
 </html>

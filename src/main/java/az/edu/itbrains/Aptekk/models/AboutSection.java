@@ -9,9 +9,8 @@ public class AboutSection {
     private String title;
     private String description;
     private String videoUrl;
-    private Integer sortOrder;  // Integer olsun, sıralama üçün
+    private Integer sortOrder;
 
-    // BU SAHƏLƏR ƏLAVƏ OLUNMALIDIR!
     private Boolean isYouTube;
     private String videoId;
 }
